@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/novelious-dev',
+	db: 'mongodb://rDev:rDevrDev@ds047581.mongolab.com:47581/dev',
 	app: {
 		title: 'Novelious - Development Environment'
 	},
