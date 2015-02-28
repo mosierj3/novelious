@@ -6,27 +6,27 @@ angular.module('writer').config(['$stateProvider',
 		// Writers state routing
 		$stateProvider.
 		state('writer', {
-			url: '',
+			url: '/writer',
 			templateUrl: 'modules/writer/views/writer.client.view.html'
 		}).
 		state('writer.home', {
-			url: '/writer',
+			url: '/home',
 			templateUrl: 'modules/writer/views/writer.home.client.view.html'
 		}).
 		state('writer.createStory', {
-			url: '/writer/create',
+			url: '/create',
 			templateUrl: 'modules/writer/views/writer.createStory.client.view.html'
 		}).
 		state('writer.editStory', {
-			url: '/writer/story/:storyId',
+			url: '/story/:storyId',
 			templateUrl: 'modules/writer/views/writer.editStory.client.view.html'
 		}).
 		state('writer.createChapter', {
-			url: '/writer/story/:storyId/create',
+			url: '/story/:storyId/create',
 			templateUrl: 'modules/writer/views/writer.createChapter.client.view.html'
 		}).
 		state('writer.editChapter', {
-			url: '/writer/story/:storyId/chapter/:chapterId',
+			url: '/story/:storyId/chapter/:chapterId',
 			templateUrl: 'modules/writer/views/writer.editChapter.client.view.html'
 		});
 	}
