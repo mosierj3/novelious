@@ -1,0 +1,27 @@
+
+<div id="editor" class="col-xs-12 col-lg-10 col-lg-offset-1" data-ng-init="findOneStory()" du-scroll-container>
+  <div class="writer-pad-padding"></div>
+  <div class="pageitem writer-pad" ng-repeat="chapter in chapters" id="{{chapter._id}}" du-scrollspy>
+    <div class="options pull-right">
+      <a href="" tooltip-placement="bottom" tooltip="Delete Chapter" ng-click="removeChapter('{{chapter._id}}')">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </a>
+      <a href="" tooltip-placement="bottom" tooltip="Publish Chapter">
+        <span class="glyphicon glyphicon-upload" aria-hidden="true" ></span>
+      </a>
+    </div>
+    <h2 contenteditable class="chapter-title text-center" data-ng-model="chapter.title"></h2>
+    <hr>
+    <p contenteditable class="chapter-text" data-ng-model="chapter.text"></p>
+  </div>
+</div>
+
+<div class="col-lg-1" role="complimentary">
+  <div class="chapter-sidebar hidden-print hidden-xs hidden-sm affix-top">
+    <ul class="nav nav-stacked" role="tablist">
+      <li class="chapter-navItem" data-ng-repeat="chapter in chapters" id="{{chapter._id}}">
+        <a href="#{{chapter._id}}" du-smooth-scroll du-scrollspy>{{chapter.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -87,7 +87,7 @@ exports.listStories = function(req, res) {
  * Story middleware
  */
 exports.storyByID = function(req, res, next, id) {
-	Story.findById(id).populate('user', 'displayName').exec(function(err, story) {
+	Story.findById(id).populate('user', 'displayName').populate('chapters').exec(function(err, story) {
 		if (err) return next(err);
 		if (! story) return next(new Error('Failed to load Story ' + id));
 		req.story = story ;

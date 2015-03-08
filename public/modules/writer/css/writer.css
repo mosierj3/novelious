@@ -1,14 +1,52 @@
-.writer-pad {
-  width:100%;
-  margin-top:10px;
-  min-height: 300px;
-  height: 100%;
-  overflow: auto;
-  padding:50px;
+.navbar-header a:link, .navbar-header a:visited, .navbar-header a:active {
+  color: rgb(99, 196, 236);
+}
+.writer-header {
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  width: 100%;
+  padding-top: 10px;
+  z-index: 999;
+  background-color:rgba(250, 250, 250, 0.9);
+}
+.story-header {
   font-family: Georgia,"Times New Roman",serif;
-  font-size:1.3em;
+  padding: 0px;
+  padding-bottom:5px;
+}
+.story-title {
+  margin: 0px;
+  margin-top: -10px;
+}
+.story-title:focus, .story-author:focus, .chapter-title:focus, .chapter-text:focus {
+  outline: none;
+}
+.story-author {
+  margin-top:-10px;
+}
+.story-toolbar {
+  padding:0px;
+}
+.writer-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 999;
+  background-color:rgba(250, 250, 250, 0.9);
+  padding: 3px 10px 3px 10px;
+}
+.writer-pad-padding {
+  min-height: 60px;
+}
+.writer-pad {
+  margin-top: 10px;
+  padding:30px 50px 30px 50px;
+  border: 1px solid lightgrey !important;
+  font-family: Georgia,"Times New Roman",serif;
+  font-size:1.0em !important;
   color:#322c2c;
-  border-color: rgb(169, 169, 169) !important;
   -webkit-font-smoothing: antialiased;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
@@ -16,6 +54,41 @@
 .writer-pad:focus {
   outline: none;
 }
+.writer-pad .options {
+  overflow: visible;
+  margin-top: -20px;
+  margin-right: -40px;
+  color: lightgrey;
+}
+.options a {
+  color: lightgrey;
+  text-decoration: none;
+}
+.writer-pad .options span:hover {
+  color: darkgrey;
+}
+.writer-pad blockquote {
+  font-size: 1.0em;
+}
+.chapter-sidebar {
+  position: fixed;
+  top: 150px;
+}
+.chapter-navItem a {
+  padding: 0px 5px 0px 5px !important;
+  background-color: transparent !important;
+  color: black;
+}
+.chapter-navItem a:hover {
+  background-color: lightcyan !important;
+  border-left: 1px solid rgb(99, 196, 236);
+  margin-left: -1px;
+}
+.chapter-navItem .active {
+  border-left: 2px solid rgb(99, 196, 236) !important;
+  margin-left: -2px !important;
+}
+
 .chapterTitle {
   padding-right:0px;
 }
@@ -23,4 +96,7 @@
   border-color: #ccc !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+}
+.chapter-text {
+  font-size: 1.0em !important;
 }

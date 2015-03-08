@@ -6,6 +6,7 @@ angular.module('writer').config(['$stateProvider',
 		// Writers state routing
 		$stateProvider.
 		state('writer', {
+			abstract: true,
 			url: '/writer',
 			templateUrl: 'modules/writer/views/writer.client.view.html'
 		}).
@@ -15,19 +16,15 @@ angular.module('writer').config(['$stateProvider',
 		}).
 		state('writer.createStory', {
 			url: '/create',
-			templateUrl: 'modules/writer/views/writer.createStory.client.view.html'
+			templateUrl: 'modules/writer/views/writer.edit.client.view.html'
 		}).
-		state('writer.editStory', {
+		state('writer.edit', {
 			url: '/story/:storyId',
-			templateUrl: 'modules/writer/views/writer.editStory.client.view.html'
-		}).
-		state('writer.createChapter', {
-			url: '/story/:storyId/create',
-			templateUrl: 'modules/writer/views/writer.createChapter.client.view.html'
+			templateUrl: 'modules/writer/views/writer.edit.client.view.html'
 		}).
 		state('writer.editChapter', {
 			url: '/story/:storyId/chapter/:chapterId',
-			templateUrl: 'modules/writer/views/writer.editChapter.client.view.html'
+			templateUrl: 'modules/writer/views/writer.edit.client.view.html'
 		});
 	}
 ]);

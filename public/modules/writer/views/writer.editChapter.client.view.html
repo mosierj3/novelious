@@ -1,11 +1,18 @@
 <div class="col-md-12">
-  <form class="form-horizontal" data-ng-init="findOneChapter()" novalidate>
-    <fieldset>
-      <div class="form-group">
-        <div class="controls">
-          <textarea class="writer-pad" data-ng-model="chapter.text"></textarea>
-        </div>
+  <form >
+    <div class="writer-pad" ng-repeat="chapter in chapters" id="{{chapter._id}}">
+      <div class="options pull-right">
+        <a href="" tooltip-placement="bottom" tooltip="Delete" ng-click="removeChapter('{{chapter._id}}')">
+          <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+        </a>
+        <a href="" tooltip-placement="bottom" tooltip="Publish">
+          <span class="glyphicon glyphicon-upload" aria-hidden="true" ></span>
+        </a>
+
       </div>
-    </fieldset>
+      <h2 contenteditable class="chapter-title text-center" data-ng-model="chapter.title"></h2>
+      <hr>
+      <p contenteditable class="chapter-text" data-ng-model="chapter.text"></p>
+    </div>
   </form>
 </div>

@@ -10,7 +10,7 @@ angular.module('core').service('Menus', [
 		// Define the menus object
 		this.menus = {};
 
-		// A private function for rendering decision 
+		// A private function for rendering decision
 		var shouldRender = function(user) {
 			if (user) {
 				if (!!~this.roles.indexOf('*')) {
@@ -82,7 +82,6 @@ angular.module('core').service('Menus', [
 		this.addMenuItem = function(menuId, menuItemTitle, menuItemURL, menuItemType, menuItemUIRoute, isPublic, roles, position) {
 			// Validate that the menu exists
 			this.validateMenuExistance(menuId);
-
 			// Push new menu item
 			this.menus[menuId].items.push({
 				title: menuItemTitle,
@@ -118,6 +117,25 @@ angular.module('core').service('Menus', [
 						roles: ((roles === null || typeof roles === 'undefined') ? this.menus[menuId].items[itemIndex].roles : roles),
 						position: position || 0,
 						shouldRender: shouldRender
+					});
+				}
+			}
+
+			// Return the menu object
+			return this.menus[menuId];
+		};
+
+		// Add submenu divider object
+		this.addSubMenuDivider = function(menuId, rootMenuItemURL) {
+			// Validate that the menu exists
+			this.validateMenuExistance(menuId);
+
+			// Search for menu item
+			for (var itemIndex in this.menus[menuId].items) {
+				if (this.menus[menuId].items[itemIndex].link === rootMenuItemURL) {
+					// Push new submenu item
+					this.menus[menuId].items[itemIndex].items.push({
+						menuItemClass: "divider"
 					});
 				}
 			}
