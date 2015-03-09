@@ -1,12 +1,12 @@
 <link rel="stylesheet" type="text/css" href="./modules/writer/css/writer.css">
 <section data-ng-controller="WriterController">
   <div class="writer-header" ng-show="story">
-    <div class="container col-lg-6 col-lg-offset-3" role="toolbar">
-      <div class="story-header col-xs-6 col-lg-8">
+    <div class="container" role="toolbar">
+      <div class="story-header col-xs-4 col-lg-6">
         <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
         <span>by <span contenteditable class="story-author" data-ng-model="story.author"></span></span>
       </div>
-      <div class="story-toolbar col-xs-6 col-lg-4">
+      <div class="story-toolbar col-xs-8 col-lg-6">
         <div class="btn-toolbar pull-right" role="toolbar">
           <div class="btn-group">
             <button type="button" class="btn btn-default" ng-click="decorate('Bold')">
@@ -39,8 +39,8 @@
   </div>
   <div class="row" ui-view></div>
   <div class="writer-footer affix-bottom" ng-show="story">
-    <div class="col-xs-10"></div>
-    <div class="col-xs-2">
+    <div class="col-xs-6"></div>
+    <div class="col-xs-6">
       <span class="pull-right">
         Word Count: {{wc}}
       </span>

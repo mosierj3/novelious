@@ -1,5 +1,5 @@
 
-<div id="editor" class="col-xs-12 col-lg-10 col-lg-offset-1" data-ng-init="findOneStory()" du-scroll-container>
+<div id="editor" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" data-ng-init="findOneStory()" du-scroll-container>
   <div class="writer-pad-padding"></div>
   <div class="pageitem writer-pad" ng-repeat="chapter in chapters" id="{{chapter._id}}" du-scrollspy>
     <div class="options pull-right">
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="col-lg-1" role="complimentary">
+<div class="col-md-1" role="complimentary">
   <div class="chapter-sidebar hidden-print hidden-xs hidden-sm affix-top">
     <ul class="nav nav-stacked" role="tablist">
       <li class="chapter-navItem" data-ng-repeat="chapter in chapters" id="{{chapter._id}}">
