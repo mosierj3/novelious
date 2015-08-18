@@ -1,6 +1,6 @@
 {
   "name": "novelious",
-  "version": "2",
+  "version": "0.1.0",
   "description": "Read. Write. Review.",
   "dependencies": {
     "bootstrap": "~3",
@@ -16,18 +16,5 @@
     "angular-ui-router": "~0.2.11",
     "ngScrollSpy": "~1.0.4",
     "angular-scroll": "~0.7.2"
-  },
-  "homepage": "https://novelious.herokuapp.com",
-  "authors": [
-    "Jared Mosier <eastbound@gmail.com>"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "public/lib",
-    "test",
-    "tests"
-  ]
+  }
 }
