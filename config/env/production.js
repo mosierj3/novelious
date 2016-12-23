@@ -7,11 +7,6 @@ module.exports = {
     keywords: 'Short, Story, Writing, Community, Follow, Read, Subscribe, Review, Write'
   },
   db: 'mongodb://rDev:rDevrDev@ds047581.mongolab.com:47581/dev',
-  google: {
-		clientID: process.env.GOOGLE_ID || '487511435093-0dkpvnmknp24b946109l5hsqp73gbqut.apps.googleusercontent.com',
-		clientSecret: process.env.GOOGLE_SECRET || 'dINnztQjfcY4EWuJOe7EvGLn',
-		callbackURL: '/auth/google/callback'
-	},
   assets: {
     lib: {
       css: [
@@ -52,8 +47,8 @@ module.exports = {
     callbackURL: '/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '487511435093-0dkpvnmknp24b946109l5hsqp73gbqut.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'dINnztQjfcY4EWuJOe7EvGLn',
     callbackURL: '/auth/google/callback'
   },
   linkedin: {
