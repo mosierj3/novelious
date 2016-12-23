@@ -13,8 +13,10 @@ angular.module('writer').controller('WriterController', [
     $rootScope.stories = null;
     $rootScope.chapter = null;
     $rootScope.chapters = null;
+    $rootScope.selectedChapter = null;
     $scope.scroll = 0;
     $scope.wc = 0;
+    $scope.defaultTitle = "New Chapter";
 
     // Initialize Module
     function initWriter() {
@@ -118,7 +120,8 @@ angular.module('writer').controller('WriterController', [
         "It was love at first sight. The first time Yossarian saw the chaplain he fell madly in love with him...",
         "All children, except one, grow up...",
         "He was an old man who fished alone...",
-        "All this happened, more or less..."
+        "All this happened, more or less...",
+        "You don’t know about me without you have read a book by the name of The Adventures of Tom Sawyer; but that ain’t no matter..."
       ];
       var n = Math.floor((Math.random() * l.length) + 1);
       var rtn = l[n];
@@ -127,6 +130,7 @@ angular.module('writer').controller('WriterController', [
       }
       return rtn;
     };
+
     // Remove existing Story
     $scope.removeStory = function(story) {
       var r = confirm("Are you sure you want to delete this story?");
@@ -189,6 +193,7 @@ angular.module('writer').controller('WriterController', [
         storyId: $stateParams.storyId
       }, function(response) {
         $rootScope.chapters = response.chapters;
+
         if ($rootScope.chapters.length >= 1) {
           angular.forEach(response.chapters, function(chapter, ci) {
             $scope.$watch('story.chapters[' + ci + ']', debounceSaveChapterUpdates, true);
@@ -201,14 +206,17 @@ angular.module('writer').controller('WriterController', [
 
     // Create new Chapter
     $scope.createChapter = function() {
-      var newChapterTitle = 'New Chapter';
+      //var newChapterTitle = 'New Chapter';
       var newChapterText = $scope.firstLine();
 
       // Create new Chapter object
       var chapter = new Chapter({
         story: $stateParams.storyId,
-        title: newChapterTitle,
-        text: newChapterText
+        number: $rootScope.chapters.length + 1,
+        title: "",
+        text: "",
+        defaultText: newChapterText,
+        published: false
       });
 
       // Save
@@ -217,19 +225,55 @@ angular.module('writer').controller('WriterController', [
       }, function(response) {
         // Add new chapter to list after save
         $rootScope.story.chapters.push(response);
+        //Go to new chapter
+        $scope.goToChapter(response._id);
 
-        // Go to the new chapter
-        $timeout(function() {
-          var offset = 124;
-          var duration = 1000;
-          var elem = angular.element(document.getElementById(response._id));
-          $document.scrollToElement(elem, offset, duration);
-          //ScrollTo.scrollTo(response._id, -60);
-        }, 0);
       }, function(errorResponse) {
         $scope.error = errorResponse.data.message;
       });
     };
+
+    //Go to chapter
+    $scope.goToChapter = function(chapterId) {
+      $timeout(function() {
+        var offset = 124;
+        var duration = 1000;
+        var elem = angular.element(document.getElementById(chapterId));
+        $document.scrollToElement(elem, offset, duration);
+      }, 0);
+    }
+
+    // Publish chapter
+    $scope.togglePublished = function(chapterId) {
+      angular.forEach($rootScope.story.chapters, function(chapter, i) {
+        if (chapter._id === chapterId) {
+          //var chapter = new Chapter(chapter);
+          chapter.published = !chapter.published;
+          $scope.updateChapter(chapter);
+          $rootScope.story.chapter = chapter;
+        }
+      });
+    }
+
+    // Show or hide publish/unpublish buttons
+    $scope.showPublish = function(chapterId) {
+      var rtn = false
+      angular.forEach($rootScope.story.chapters, function(chapter, i) {
+        if (chapter._id === chapterId && chapter.title != "" && chapter.published == false) {
+          rtn = true;
+        }
+      });
+      return rtn;
+    }
+    $scope.showUnpublish = function(chapterId) {
+      var rtn = false;
+      angular.forEach($rootScope.story.chapters, function(chapter, i) {
+        if (chapter._id === chapterId && chapter.title != "" && chapter.published == true) {
+          rtn = true;
+        }
+      });
+      return rtn;
+    }
 
     // Remove existing Chapter
     $scope.removeChapter = function(chapterId) {
@@ -248,11 +292,13 @@ angular.module('writer').controller('WriterController', [
       }
     };
 
-    // Update existing Chapter
+    // Update existing Chapter(s)
     $scope.updateChapter = function(chapterUpdate) {
       if (chapterUpdate === 'all') {
-        angular.forEach($rootScope.chapters, function(chapter) {
+        angular.forEach($rootScope.story.chapters, function(chapter, i) {
+          chapter.number = i + 1;
           var c = new Chapter(chapter);
+
           c.$update({
             storyId: chapter._story,
             chapterId: chapter._id
@@ -271,6 +317,11 @@ angular.module('writer').controller('WriterController', [
       }
     };
 
+    // Update chapter numbers
+    $scope.updateChapterNumbers = function(chapterId) {
+      $scope.updateChapter('all');
+      $scope.goToChapter(chapterId);
+    }
     // Find existing Chapter
     $scope.findOneChapter = function() {
       $rootScope.chapter = null;
@@ -309,16 +360,10 @@ angular.module('writer').controller('WriterController', [
     initWriter();
   }
 ]).value('duScrollOffset', 124).run(function($rootScope, $location, $stateParams) {
+  // Scroll to chapter and position correctly
   $rootScope.$on('duScrollspy:becameActive', function($event, $element) {
     //Automaticly update location
     var hash = $element.prop('hash');
-    //console.log(JSON.stringify(hash));
     hash = hash.replace('#', '/writer/story/' + $stateParams.storyId + '/chapter/');
-    //console.log(JSON.stringify(hash));
-    if (hash) {
-      //$location.hash(hash.substr(1)).replace();
-      //$location.path(hash);
-      //$rootScope.$apply();
-    }
   });
 });

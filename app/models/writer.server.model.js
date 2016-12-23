@@ -24,6 +24,8 @@ var ChapterSchema = new mongoose.Schema({
 	number: Number,
   title: String,
   text: String,
+	defaultText: String,
+	published: Boolean,
 	user: { type: Schema.ObjectId, ref: 'User' }
 });
 

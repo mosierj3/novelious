@@ -2,7 +2,7 @@
 
 module.exports = {
 	app: {
-		title: 'Novelious',
+		title: 'Novelius',
 		description: 'Read. Write. Review.',
 		keywords: 'Short, Story, Writing, Community, Follow, Read, Subscribe, Review, Write'
 	},
@@ -26,7 +26,8 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/angular-scroll/angular-scroll.js'
+				'public/lib/angular-scroll/angular-scroll.js',
+				'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'
 			]
 		},
 		css: [

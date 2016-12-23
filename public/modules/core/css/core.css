@@ -13,3 +13,7 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+/* Drag and drop list required CSS */
+ul[dnd-list], ul[dnd-list] > li {
+    position: relative;
+}

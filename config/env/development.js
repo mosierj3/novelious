@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/novelious',
+	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/novelius',
 	app: {
-		title: 'Novelious - Development Environment'
+		title: 'Novelius - Development Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
@@ -16,8 +16,8 @@ module.exports = {
 		callbackURL: '/auth/twitter/callback'
 	},
 	google: {
-		clientID: process.env.GOOGLE_ID || 'APP_ID',
-		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+		clientID: process.env.GOOGLE_ID || '487511435093-0dkpvnmknp24b946109l5hsqp73gbqut.apps.googleusercontent.com',
+		clientSecret: process.env.GOOGLE_SECRET || 'dINnztQjfcY4EWuJOe7EvGLn',
 		callbackURL: '/auth/google/callback'
 	},
 	linkedin: {

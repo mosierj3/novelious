@@ -74,6 +74,9 @@
   position: fixed;
   top: 150px;
 }
+.chapter-sidebar-header h4{
+  border-bottom: 1px solid rgb(99, 196, 236) !important;
+}
 .chapter-navItem a {
   padding: 0px 5px 0px 5px !important;
   background-color: transparent !important;
@@ -81,12 +84,12 @@
 }
 .chapter-navItem a:hover {
   background-color: lightcyan !important;
-  border-left: 1px solid rgb(99, 196, 236);
-  margin-left: -1px;
+  /*border-left: 1px solid rgb(99, 196, 236);*/
+  /*margin-left: -1px;*/
 }
 .chapter-navItem .active {
-  border-left: 2px solid rgb(99, 196, 236) !important;
-  margin-left: -2px !important;
+  /*border-left: 2px solid rgb(99, 196, 236) !important;*/
+  /*margin-left: -2px !important;*/
 }
 
 .chapterTitle {
@@ -99,4 +102,79 @@
 }
 .chapter-text {
   font-size: 1.0em !important;
+}
+h2:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+  color: lightgrey;
+}
+p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
+  color: lightgrey;
+}
+
+/** Drag and drop specific CSS for the Writer module only...
+ * maybe I'll use it later on in other modules and move it
+ * to core.css, but for now, I'll just put it here
+ */
+
+ /** Empty spots need a minimum heigh
+  */
+ul[dnd-list] {
+    min-height: 20px;
+    padding-left: 0px;
+}
+/** Remove link underlines from list
+ */
+ul[dnd-list] a {
+  text-decoration: none;
+}
+
+ul[dnd-list] .handle {
+  color: lightgrey !important;
+}
+ul[dnd-list] .handle:hover {
+  color: rgb(99, 196, 236) !important;
+  cursor: move;
+}
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 20px;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+
+ul[dnd-list] li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    margin-bottom: -1px;
+}
+
+/**
+ * Show selected elements in green
+ */
+ul[dnd-list] li.selected {
+    background-color: #dff0d8;
+    color: #3c763d;
 }
