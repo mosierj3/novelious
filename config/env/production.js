@@ -48,8 +48,8 @@ module.exports = {
     callbackURL: '/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || '487511435093-0dkpvnmknp24b946109l5hsqp73gbqut.apps.googleusercontent.com',
-    clientSecret: process.env.GOOGLE_SECRET || 'dINnztQjfcY4EWuJOe7EvGLn',
+    clientID: process.env.GOOGLE_ID || '487511435093-glrf264hn6n7fkeiloi7agp0njtgtv55.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'b58Eh0iO8JxzWSmjsYGWb4MS',
     callbackURL: '/auth/google/callback'
   },
   linkedin: {
