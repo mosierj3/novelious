@@ -1,5 +1,10 @@
 'use strict';
 /**
+ * Local development envirenment variabls.
+ */
+require('dotenv').config();
+
+/**
  * Module dependencies.
  */
 var init = require('./config/init')(),

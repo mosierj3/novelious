@@ -166,6 +166,9 @@ module.exports = function(grunt) {
 	// Secure task(s).
 	grunt.registerTask('secure', ['env:secure', 'lint', 'concurrent:default']);
 
+	// Development task(s).
+	grunt.registerTask('development', ['env:development', 'lint', 'concurrent:default']);
+
 	// Lint task(s).
 	grunt.registerTask('lint', ['jshint', 'csslint']);
 
