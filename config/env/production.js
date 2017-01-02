@@ -7,36 +7,6 @@ module.exports = {
     keywords: 'Short, Story, Writing, Community, Follow, Read, Subscribe, Review, Write'
   },
   db: 'mongodb://rDev:rDevrDev@ds047581.mongolab.com:47581/dev',
-  assets: {
-    lib: {
-      css: [
-        'public/lib/bootstrap/dist/css/bootstrap.css',
-        'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-      ],
-      js: [
-        'public/lib/angular/angular.js',
-        'public/lib/angular-resource/angular-resource.js',
-        'public/lib/angular-cookies/angular-cookies.js',
-        'public/lib/angular-animate/angular-animate.js',
-        'public/lib/angular-touch/angular-touch.js',
-        'public/lib/angular-sanitize/angular-sanitize.js',
-        'public/lib/angular-ui-router/release/angular-ui-router.js',
-        'public/lib/angular-ui-utils/ui-utils.js',
-        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-        'public/lib/angular-scroll/angular-scroll.js',
-        'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'
-      ]
-    },
-    css: [
-      'public/modules/**/css/*.css'
-    ],
-    js: [
-      'public/config.js',
-      'public/application.js',
-      'public/modules/*/*.js',
-      'public/modules/*/*[!tests]*/*.js'
-    ]
-  },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
     clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
