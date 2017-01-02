@@ -1,44 +1,49 @@
 <link rel="stylesheet" type="text/css" href="./modules/writer/css/writer.css">
-<section data-ng-controller="WriterController">
-  <div class="writer-header" ng-show="story">
-    <div class="container" role="toolbar">
-      <div class="story-header col-xs-4 col-lg-6">
-        <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
-        <span>by <span contenteditable class="story-author" data-ng-model="story.author"></span></span>
-      </div>
-      <div class="story-toolbar col-xs-8 col-lg-6">
-        <div class="btn-toolbar pull-right" role="toolbar">
-          <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="decorate('Bold')">
-              <span class="glyphicon glyphicon-bold"></span>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="decorate('Italic')">
-              <span class="glyphicon glyphicon-italic"></span>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="decorate('indent')">
-              <span class="glyphicon glyphicon-indent-left"></span>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="decorate('outdent')">
-              <span class="glyphicon glyphicon-indent-right"></span>
-            </button>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-default" ng-click="createChapter()">
-              <span class="glyphicon glyphicon-plus"></span>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="updateAll()">
-              <span class="glyphicon glyphicon-floppy-save"></span>
-            </button>
-            <button type="button" class="btn btn-default" ng-click="removeStory({{story._id}})">
-              <span class="glyphicon glyphicon-trash"></span>
-            </button>
-          </div>
+<section class="container-fluid" data-ng-controller="WriterController">
+  <!-- Header -->
+  <div class="row writer-header" ng-show="story" role="toolbar">
+    <div class="col-lg-7 story-header">
+      <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
+    </div>
+    <div class="col-lg-5 story-header">
+      <div class="btn-toolbar float-lg-right" role="toolbar">
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" ng-click="decorate('Bold')">
+            <i dnd-hangle class="fa fa-bold" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" ng-click="decorate('Italic')">
+            <i dnd-hangle class="fa fa-italic" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" ng-click="decorate('indent')">
+            <i dnd-hangle class="fa fa-indent" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" ng-click="decorate('outdent')">
+            <i dnd-hangle class="fa fa-outdent" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary" data-placement="bottom" title="New Chapter" onmouseenter="$(this).tooltip('show')" ng-click="createChapter()">
+            <i dnd-hangle class="fa fa-file" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-placement="bottom" title="Save Story" onmouseenter="$(this).tooltip('show')" ng-click="updateAll()">
+            <i dnd-hangle class="fa fa-save" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" data-placement="bottom" title="Delete Story" onmouseenter="$(this).tooltip('show')" ng-click="removeStory({{story._id}})">
+            <i dnd-hangle class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="btn-group hidden-xl-up">
+          <button type="button" class="btn btn-secondary" onmousedown="$('.row-offcanvas').toggleClass('active')">
+            <i dnd-hangle class="fa fa-bars" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
+  <!-- Body -->
   <div class="row" ui-view></div>
-  <div class="writer-footer affix-bottom" ng-show="story">
+  <!-- Footer -->
+  <div class="row writer-footer affix-bottom" ng-show="story">
     <div class="col-xs-6"></div>
     <div class="col-xs-6">
       <span class="pull-right">

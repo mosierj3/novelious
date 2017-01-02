@@ -3,17 +3,16 @@
 }
 .writer-header {
   position: fixed;
-  top: 50px;
   left: 0px;
   width: 100%;
-  padding-top: 10px;
   z-index: 999;
+  padding-top: 10px;
   background-color:rgba(250, 250, 250, 0.9);
 }
 .story-header {
   font-family: Georgia,"Times New Roman",serif;
-  padding: 0px;
-  padding-bottom:5px;
+  padding: 5px;
+  padding-left: 30px;
 }
 .story-title {
   margin: 0px;
@@ -42,14 +41,10 @@
 }
 .writer-pad {
   margin-top: 10px;
-  padding:30px 50px 30px 50px;
-  border: 1px solid lightgrey !important;
   font-family: Georgia,"Times New Roman",serif;
   font-size:1.0em !important;
   color:#322c2c;
-  -webkit-font-smoothing: antialiased;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
 }
 .writer-pad:focus {
   outline: none;
@@ -64,15 +59,18 @@
   color: lightgrey;
   text-decoration: none;
 }
+.writer-body {
+
+}
+
 .writer-pad .options span:hover {
   color: darkgrey;
 }
 .writer-pad blockquote {
   font-size: 1.0em;
 }
-.chapter-sidebar {
-  position: fixed;
-  top: 150px;
+.writer-sidebar {
+
 }
 .chapter-sidebar-header h4{
   border-bottom: 1px solid rgb(99, 196, 236) !important;
@@ -102,6 +100,27 @@
 }
 .chapter-text {
   font-size: 1.0em !important;
+}
+
+@media (min-width: 576px) {
+  .writer-pad {
+    padding:30px 50px 30px 50px;
+    border: 1px solid lightgrey !important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  }
+  .writer-body {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .writer-sidebar {
+    position: fixed;
+    top: 115px;
+    right: 0px;
+  }
 }
 h2:empty:not(:focus)::before {
   content: attr(data-placeholder);
@@ -177,4 +196,57 @@ ul[dnd-list] li {
 ul[dnd-list] li.selected {
     background-color: #dff0d8;
     color: #3c763d;
+}
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 1200px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 150px;
+    width: 50%; /* 6 columns */
+  }
 }

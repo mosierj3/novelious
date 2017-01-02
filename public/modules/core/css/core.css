@@ -17,3 +17,7 @@
 ul[dnd-list], ul[dnd-list] > li {
     position: relative;
 }
+
+.text-center {
+	text-align: center;
+}

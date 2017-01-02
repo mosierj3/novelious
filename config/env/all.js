@@ -13,8 +13,8 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/bootstrap/dist/css/bootstrap.min.css',
+				'public/lib/components-font-awesome/css/font-awesome.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -27,7 +27,10 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/angular-scroll/angular-scroll.js',
-				'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js'
+				'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
+				'public/lib/jquery/dist/jquery.min.js',
+				'public/lib/tether/dist/js/tether.min.js',
+				'public/lib/bootstrap/dist/js/bootstrap.min.js'
 			]
 		},
 		css: [

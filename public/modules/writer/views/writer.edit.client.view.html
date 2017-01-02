@@ -1,26 +1,34 @@
 
+<!-- Writing pad
 <div id="editor" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" data-ng-init="findOneStory()" du-scroll-container>
-  <div class="writer-pad-padding"></div>
-  <div class="pageitem writer-pad" ng-repeat="chapter in chapters | orderBy:'number'" id="{{chapter._id}}" du-scrollspy>
-    <div class="options pull-right">
-      <a href="" tooltip-placement="bottom" tooltip="Delete Chapter" ng-click="removeChapter('{{chapter._id}}')">
-        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-      </a>
-      <a href="" tooltip-placement="bottom" tooltip="Publish Chapter" ng-show="showPublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
-        <span class="glyphicon glyphicon-upload" aria-hidden="true" ></span>
-      </a>
-      <a href="" tooltip-placement="bottom" tooltip="Unpublish Chapter" ng-show="showUnpublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
-        <span class="glyphicon glyphicon-download" aria-hidden="true" ></span>
-      </a>
+-->
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xl-8 col-xs-12" id="editor" data-ng-init="findOneStory()" du-scroll-container>
+    <div class="writer-pad-padding"></div>
+    <div class="pageitem writer-pad" ng-repeat="chapter in chapters | orderBy:'number'" id="{{chapter._id}}" du-scrollspy>
+      <div class="options pull-right">
+        <a href="" data-placement="bottom" title="Delete Chapter" onmouseenter="$(this).tooltip('show')" ng-click="removeChapter('{{chapter._id}}')">
+          <i class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="" data-placement="bottom" title="Publish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showPublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
+          <i class="fa fa-arrow-circle-o-up fa-lg" aria-hidden="true"></i>
+        </a>
+        <a href="" data-placement="bottom" title="Unpublish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showUnpublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
+          <i class="fa fa-arrow-circle-o-down fa-lg" aria-hidden="true"></i>
+        </a>
+      </div>
+      <h2 contenteditable class="chapter-title text-center" data-ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
+      <hr>
+      <p contenteditable class="chapter-text" data-ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
     </div>
-    <h2 contenteditable class="chapter-title text-center" data-ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
-    <hr>
-    <p contenteditable class="chapter-text" data-ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
   </div>
-</div>
-<!-- dnd-moved="chapterList.splice($index, 1)" -->
-<div class="col-md-1" role="complimentary">
-  <div class="chapter-sidebar hidden-print hidden-xs hidden-sm affix-top">
+  <!-- Comments Sidebar -->
+  <div class="col-lg-2 h-100 hidden-md-down bg-faded">
+    <!-- comments and stuff here -->
+  </div>
+
+  <!-- Story Sidebar -->
+  <div class="col-lg-2 sidebar-offcanvas hidden-print writer-sidebar" id="sidebar">
     <span class="chapter-sidebar-header"><h4>Index</h4></span>
     <ul class="nav nav-stacked" role="tablist" dnd-list="chapters">
       <li id="{{chapter._id}}"
@@ -31,13 +39,12 @@
           dnd-effect-allowed="move"
           dnd-dragend="updateChapterNumbers(chapter._id)"
           >
-          <span dnd-hangle class="handle glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+          <i dnd-hangle class="handle fa fa-bars hidden-lg-down" aria-hidden="true"></i>
+          <span  class="handle glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
           <dnd-nodrag>
             <span><a href="#{{chapter._id}}" du-smooth-scroll du-scrollspy>{{chapter.title}}</a></span>
           </dnd-nodrag>
-
       </li>
     </ul>
-</ul>
   </div>
 </div>

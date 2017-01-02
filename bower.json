@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Read. Write. Review.",
   "dependencies": {
-    "bootstrap": "~3",
+    "bootstrap": "~4",
+    "components-font-awesome": "^4.7.0",
     "angular": "~1.2",
     "angular-resource": "~1.2",
     "angular-mocks": "~1.2",
