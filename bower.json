@@ -17,6 +17,7 @@
     "angular-ui-router": "~0.2.11",
     "ngScrollSpy": "~1.0.4",
     "angular-scroll": "~0.7.2",
-    "angular-drag-and-drop-lists": "^1.4.0"
+    "angular-drag-and-drop-lists": "^1.4.0",
+    "headroom.js": "https://unpkg.com/headroom.js/bower.zip"
   }
 }

@@ -6,7 +6,7 @@
   <div class="col-xl-8 col-xs-12" id="editor" data-ng-init="findOneStory()" du-scroll-container>
     <div class="writer-pad-padding"></div>
     <div class="pageitem writer-pad" ng-repeat="chapter in chapters | orderBy:'number'" id="{{chapter._id}}" du-scrollspy>
-      <div class="options pull-right">
+      <div class="options float-xs-right">
         <a href="" data-placement="bottom" title="Delete Chapter" onmouseenter="$(this).tooltip('show')" ng-click="removeChapter('{{chapter._id}}')">
           <i class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
         </a>

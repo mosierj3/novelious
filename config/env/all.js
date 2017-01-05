@@ -30,7 +30,9 @@ module.exports = {
 				'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
 				'public/lib/jquery/dist/jquery.min.js',
 				'public/lib/tether/dist/js/tether.min.js',
-				'public/lib/bootstrap/dist/js/bootstrap.min.js'
+				'public/lib/bootstrap/dist/js/bootstrap.min.js',
+				'public/lib/headroom.js/dist/headroom.min.js',
+				'public/lib/headroom.js/dist/angular.headroom.min.js'
 			]
 		},
 		css: [

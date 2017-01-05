@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="./modules/writer/css/writer.css">
 <section class="container-fluid" data-ng-controller="WriterController">
   <!-- Header -->
-  <div class="row writer-header" ng-show="story" role="toolbar">
+  <header headroom class="row writer-header" ng-show="story" role="toolbar">
     <div class="col-lg-7 story-header">
       <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
     </div>
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
   <!-- Body -->
   <div class="row" ui-view></div>
   <!-- Footer -->
