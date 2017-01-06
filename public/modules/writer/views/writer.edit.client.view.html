@@ -1,25 +1,24 @@
 
 <!-- Writing pad
-<div id="editor" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" data-ng-init="findOneStory()" du-scroll-container>
+<div id="editor" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" ng-init="findOneStory()" du-scroll-container>
 -->
-<div class="row row-offcanvas row-offcanvas-right">
-  <div class="col-xl-8 col-xs-12" id="editor" data-ng-init="findOneStory()" du-scroll-container>
+<div class="row">
+  <div class="col-xl-8 col-xs-12" id="editor" ng-init="findOneStory()" du-scroll-container>
     <div class="writer-pad-padding"></div>
     <div class="pageitem writer-pad" ng-repeat="chapter in chapters | orderBy:'number'" id="{{chapter._id}}" du-scrollspy>
       <div class="options float-xs-right">
         <a href="" data-placement="bottom" title="Delete Chapter" onmouseenter="$(this).tooltip('show')" ng-click="removeChapter('{{chapter._id}}')">
           <i class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
         </a>
-        <a href="" data-placement="bottom" title="Publish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showPublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
+        <a href="" data-placement="bottom" title="Publish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showPublish('{{chapter._id}}')" ng-click="togglePublished('{{chapter._id}}')">
           <i class="fa fa-arrow-circle-o-up fa-lg" aria-hidden="true"></i>
         </a>
-        <a href="" data-placement="bottom" title="Unpublish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showUnpublish('{{chapter._id}}')" data-ng-click="togglePublished('{{chapter._id}}')">
+        <a href="" data-placement="bottom" title="Unpublish Chapter" onmouseenter="$(this).tooltip('show')" ng-show="showUnpublish('{{chapter._id}}')" ng-click="togglePublished('{{chapter._id}}')">
           <i class="fa fa-arrow-circle-o-down fa-lg" aria-hidden="true"></i>
         </a>
       </div>
-      <h2 contenteditable class="chapter-title text-center" data-ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
-      <hr>
-      <p contenteditable class="chapter-text" data-ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
+      <h2 contenteditable class="chapter-title text-center" ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
+      <p contenteditable class="chapter-text" ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
     </div>
   </div>
   <!-- Comments Sidebar -->
@@ -28,12 +27,12 @@
   </div>
 
   <!-- Story Sidebar -->
-  <div class="col-lg-2 sidebar-offcanvas hidden-print writer-sidebar" id="sidebar">
+  <div class="col-lg-2 h-100 hidden-print writer-sidebar" ng-class="{active: sidebarActive}" id="sidebar">
     <span class="chapter-sidebar-header"><h4>Index</h4></span>
     <ul class="nav nav-stacked" role="tablist" dnd-list="chapters">
       <li id="{{chapter._id}}"
           class="chapter-navItem"
-          data-ng-repeat="chapter in chapters | orderBy:'number'"
+          ng-repeat="chapter in chapters | orderBy:'number'"
           dnd-draggable="chapter"
           dnd-moved="chapters.splice($index, 1)"
           dnd-effect-allowed="move"
@@ -42,7 +41,7 @@
           <i dnd-hangle class="handle fa fa-bars hidden-lg-down" aria-hidden="true"></i>
           <span  class="handle glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
           <dnd-nodrag>
-            <span><a href="#{{chapter._id}}" du-smooth-scroll du-scrollspy>{{chapter.title}}</a></span>
+            <span><a href="#{{chapter._id}}" ng-class="{}" du-smooth-scroll du-scrollspy ng-click="removeSidebarActive()">{{chapter.title}}</a></span>
           </dnd-nodrag>
       </li>
     </ul>

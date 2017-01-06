@@ -1,42 +1,46 @@
 <link rel="stylesheet" type="text/css" href="./modules/writer/css/writer.css">
 <section class="container-fluid" data-ng-controller="WriterController">
   <!-- Header -->
-  <header headroom class="row writer-header" ng-show="story" role="toolbar">
-    <div class="col-lg-7 story-header">
-      <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
+  <header headroom class="writer-header" ng-show="story" role="toolbar">
+    <div class="row story-header">
+      <div class="col-lg-7">
+        <h1 contenteditable class="story-title" data-ng-model="story.title"></h1>
+      </div>
+      <div class="col-lg-5">
+        <div class="btn-toolbar float-lg-right" role="toolbar">
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" ng-click="decorate('Bold')">
+              <i dnd-hangle class="fa fa-bold" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" ng-click="decorate('Italic')">
+              <i dnd-hangle class="fa fa-italic" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" ng-click="decorate('indent')">
+              <i dnd-hangle class="fa fa-indent fa-fw" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" ng-click="decorate('outdent')">
+              <i dnd-hangle class="fa fa-outdent" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" data-placement="bottom" title="New Chapter" onmouseenter="$(this).tooltip('show')" ng-click="createChapter()">
+              <i dnd-hangle class="fa fa-file" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" data-placement="bottom" title="Save Story" onmouseenter="$(this).tooltip('show')" ng-click="updateAll()">
+              <i dnd-hangle class="fa fa-save" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" data-placement="bottom" title="Delete Story" onmouseenter="$(this).tooltip('show')" ng-click="removeStory({{story._id}})">
+              <i dnd-hangle class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-lg-5 story-header">
-      <div class="btn-toolbar float-lg-right" role="toolbar">
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary" ng-click="decorate('Bold')">
-            <i dnd-hangle class="fa fa-bold" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="btn btn-secondary" ng-click="decorate('Italic')">
-            <i dnd-hangle class="fa fa-italic" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="btn btn-secondary" ng-click="decorate('indent')">
-            <i dnd-hangle class="fa fa-indent" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="btn btn-secondary" ng-click="decorate('outdent')">
-            <i dnd-hangle class="fa fa-outdent" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="btn-group">
-          <button type="button" class="btn btn-secondary" data-placement="bottom" title="New Chapter" onmouseenter="$(this).tooltip('show')" ng-click="createChapter()">
-            <i dnd-hangle class="fa fa-file" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="btn btn-secondary" data-placement="bottom" title="Save Story" onmouseenter="$(this).tooltip('show')" ng-click="updateAll()">
-            <i dnd-hangle class="fa fa-save" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="btn btn-secondary" data-placement="bottom" title="Delete Story" onmouseenter="$(this).tooltip('show')" ng-click="removeStory({{story._id}})">
-            <i dnd-hangle class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="btn-group hidden-xl-up">
-          <button type="button" class="btn btn-secondary" onmousedown="$('.row-offcanvas').toggleClass('active')">
-            <i dnd-hangle class="fa fa-bars" aria-hidden="true"></i>
-          </button>
-        </div>
+    <div class="row hidden-xl-up writer-button">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-secondary" ng-click="toggleSidebarActive()">
+          <i dnd-hangle class="fa fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </header>

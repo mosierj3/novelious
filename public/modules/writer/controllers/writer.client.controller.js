@@ -17,6 +17,7 @@ angular.module('writer').controller('WriterController', [
     $scope.scroll = 0;
     $scope.wc = 0;
     $scope.defaultTitle = "New Chapter";
+    $scope.sidebarActive = false;
 
     // Initialize Module
     function initWriter() {
@@ -27,6 +28,13 @@ angular.module('writer').controller('WriterController', [
         }, 2000);
       }
     };
+
+    $scope.toggleSidebarActive = function() {
+      $scope.sidebarActive = !$scope.sidebarActive;
+    }
+    $scope.removeSidebarActive = function() {
+      $scope.sidebarActive = false;
+    }
 
     // Create new story
     $scope.createStory = function() {
