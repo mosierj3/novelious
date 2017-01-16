@@ -1,23 +1,77 @@
+/* Novelius colors */
+/* Novelius fonts */
+.novelius-dark {
+  color: #161616 !important; }
+
+.novelius-dark-bg {
+  background-color: #161616 !important; }
+
+.novelius-light {
+  color: #EDF4ED !important; }
+
+.novelius-light-bg {
+  background-color: #EDF4ED !important; }
+
+.novelius-blue {
+  color: #60A6BA !important; }
+
+.novelius-blue-bg {
+  background-color: #60A6BA !important; }
+
+.novelius-green {
+  color: #79B791 !important; }
+
+.novelius-green-bg {
+  background-color: #79B791 !important; }
+
+.novelius-lightgreen {
+  color: #ABD1B5 !important; }
+
+.novelius-lightgreen-bg {
+  background-color: #ABD1B5 !important; }
+
+.novelius-trim {
+  border-color: #60A6BA !important; }
+
+/* Standard ui elements */
+.nav a:hover {
+  background-color: #EDF4ED !important; }
+
+.novelius-writing {
+  font-family: Georgia, serif;
+  font-size: large; }
+
+/* Dropdown-menu fix */
+.open > .dropdown-menu {
+  display: block; }
+
+.open > a {
+  outline: 0; }
+
+/* Global css */
+.navbar {
+  min-height: 56px !important; }
+
 .content {
-	margin-top: 50px;
-}
+  margin-top: 56px; }
+
 .undecorated-link:hover {
-	text-decoration: none;
-}
+  text-decoration: none; }
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
+  display: none !important; }
+
 .ng-invalid.ng-dirty {
-	border-color: #FA787E;
-}
+  border-color: #FA787E; }
+
 .ng-valid.ng-dirty {
-	border-color: #78FA89;
-}
+  border-color: #78FA89; }
+
 /* Drag and drop list required CSS */
 ul[dnd-list], ul[dnd-list] > li {
-    position: relative;
-}
+  position: relative; }
 
 .text-center {
-	text-align: center;
-}
+  text-align: center; }
+
+/*# sourceMappingURL=core.css.map */

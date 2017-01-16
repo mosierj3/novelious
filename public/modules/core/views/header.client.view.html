@@ -1,126 +1,51 @@
-<div class="container" data-ng-controller="HeaderController">
-	<!-- Navbar -->
-	<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-		<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
-		<a class="navbar-brand" href="/#!/">
-			<img src="/modules/core/img/brand/favicon_light.png" width="30" height="30" class="d-inline-block align-top" alt="">
-			Novelius
-		</a>
-		<div class="collapse navbar-toggleable-xs" id="navbar-header">
-			<!-- Main site navigation -->
-			<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-				<li class="nav-item"
-						data-ng-repeat="item in menu.items | orderBy: 'position'"
-						data-ng-if="item.shouldRender(authentication.user);"
-						ng-switch="item.menuItemType"
-						ui-route="{{item.uiRoute}}"
-						ng-class="{active: ($uiRoute), dropdown: (item.menuItemType === 'dropdown')}"
-						dropdown="item.menuItemType === 'dropdown'">
-						<!-- Default navbar link -->
-						<a ng-switch-default class="nav-link"  href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
-						<!-- Dropdown navbar link -->
-						<a ng-switch-when="dropdown" class="nav-link dropdown-toggle" href="/#!/{{item.link}}" data-ng-bind="item.title" aria-labelledby="supportedContentDropdown" aria-haspopup="true" aria-expanded="false"></a>
-						<div ng-switch-when="dropdown" class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-							<a class="dropdown-item" href="/#!/{{subitem.link}}" data-ng-bind="subitem.title" data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}"></a>
-						</div>
-				</li>
-			</ul>
-			<!-- User navigation when logged out -->
-			<ul class="nav navbar-nav float-sm-right" data-ng-hide="authentication.user">
-				<li class="nav-item" ui-route="/signup" ng-class="{active: $uiRoute}">
-					<a class="nav-link" href="/#!/signup">Sign Up</a>
-				</li>
-				<li class="nav-item" ui-route="/signin" ng-class="{active: $uiRoute}">
-					<a class="nav-link" href="/#!/signin">Sign In</a>
-				</li>
-			</ul>
-			<!-- User navigation when logged in -->
-			<ul class="nav navbar-nav float-sm-right" data-ng-show="authentication.user">
-				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" data-ng-bind="authentication.user.displayName"></a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="supportedContentDropdown">
-						<a class="dropdown-item" href="/#!/settings/profile">Edit Profile</a>
-						<a class="dropdown-item" href="/#!/settings/accounts">Manage Social Accounts</a>
-						<a class="dropdown-item" href="/#!/settings/password">Change Password</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="/auth/signout">Signout</a>
-					</div>
-				</li>
-			</ul>
-    </div>
-	</nav>
-<!--
-    <ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-			<li class="nav-item active" data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-				<a class="nav-link" ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
-				<a class="nav-link dropdown-toggle" ng-switch-when="dropdown" aria-labelledby="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<b class="caret"></b>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<a class="navbar-brand" href="/#!/">
+	<img src="/modules/core/img/brand/favicon_light.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	Novelius
+</a>
+<div class="collapse navbar-collapse" id="navbar-header">
+	<!-- Main site navigation -->
+	<ul class="navbar-nav mr-auto" data-ng-if="menu.shouldRender(authentication.user);">
+		<li class="nav-item"
+				ng-repeat="item in menu.items | orderBy: 'position'"
+				ng-if="item.shouldRender(authentication.user);"
+				ng-switch="item.menuItemType"
+				ui-route="{{item.uiRoute}}"
+				ng-class="{active: ($uiRoute), dropdown: (item.menuItemType === 'dropdown')}"
+				dropdown="item.menuItemType === 'dropdown'">
+				<!-- Default navbar link -->
+				<a ng-switch-default class="nav-link"  href="/#!/{{item.link}}">{{item.title}}</a>
+				<!-- Dropdown navbar link -->
+				<a ng-switch-when="dropdown" class="nav-link dropdown-toggle" href="/#!/{{item.link}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{item.title}}
 				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu" >
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
-						<a class="dropdown-item" href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
-    </li>
-			</li>
-    </ul>
-
-	<div class="navbar navbar-fixed-top navbar-dark bg-inverse navbar-header">
-		<button class="navbar-toggle" type="button" data-ng-click="toggleCollapsibleMenu()">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a href="/#!/" class="navbar-brand">Novelius</a>
-	</div>
-	<nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
-		<ul class="nav navbar-nav" data-ng-if="menu.shouldRender(authentication.user);">
-			<li data-ng-repeat="item in menu.items | orderBy: 'position'" data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType" ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}" dropdown="item.menuItemType === 'dropdown'">
-
-				<a ng-switch-when="dropdown" class="dropdown-toggle">
-					<span data-ng-bind="item.title"></span>
-					<b class="caret"></b>
-				</a>
-				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items | orderBy: 'position'" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
-						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
-					</li>
-				</ul>
-				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
-				<a href="/#!/signup">Sign Up</a>
-			</li>
-			<li class="divider-vertical"></li>
-			<li ui-route="/signin" ng-class="{active: $uiRoute}">
-				<a href="/#!/signin">Sign In</a>
-			</li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="/#!/settings/profile">Edit Profile</a>
-					</li>
-					<li>
-						<a href="/#!/settings/accounts">Manage Social Accounts</a>
-					</li>
-					<li data-ng-show="authentication.user.provider === 'local'">
-						<a href="/#!/settings/password">Change Password</a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="/auth/signout">Signout</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</nav>
--->
+				<div ng-switch-when="dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="/#!/{{subitem.link}}" ng-bind="subitem.title" ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}"></a>
+				</div>
+		</li>
+	</ul>
+	<!-- User navigation when logged out -->
+	<ul class="navbar-nav mr-auto" ng-hide="authentication.user">
+		<li class="nav-item" ui-route="/signup" ng-class="{active: $uiRoute}">
+			<a class="nav-link" href="/#!/signup">Sign Up</a>
+		</li>
+		<li class="nav-item" ui-route="/signin" ng-class="{active: $uiRoute}">
+			<a class="nav-link" href="/#!/signin">Sign In</a>
+		</li>
+	</ul>
+	<!-- User navigation when logged in -->
+	<ul class="navbar-nav float-right-sm" ng-show="authentication.user">
+		<li class="nav-item dropdown">
+			<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" ng-bind="authentication.user.displayName"></a>
+			<div class="dropdown-menu dropdown-menu-right" aria-labelledby="supportedContentDropdown">
+				<a class="dropdown-item" href="/#!/settings/profile">Edit Profile</a>
+				<a class="dropdown-item" href="/#!/settings/accounts">Manage Social Accounts</a>
+				<a class="dropdown-item" href="/#!/settings/password">Change Password</a>
+				<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="/auth/signout">Signout</a>
+			</div>
+		</li>
+	</ul>
 </div>

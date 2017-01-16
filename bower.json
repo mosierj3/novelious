@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Read. Write. Review.",
   "dependencies": {
-    "bootstrap": "~4",
+    "bootstrap": "~4.0",
     "components-font-awesome": "^4.7.0",
     "angular": "~1.2",
     "angular-resource": "~1.2",
@@ -18,6 +18,10 @@
     "ngScrollSpy": "~1.0.4",
     "angular-scroll": "~0.7.2",
     "angular-drag-and-drop-lists": "^1.4.0",
-    "headroom.js": "https://unpkg.com/headroom.js/bower.zip"
+    "headroom.js": "https://unpkg.com/headroom.js/bower.zip",
+    "tether": "^1.4.0",
+    "jquery": "^3.1.1",
+    "angular-hotkeys": "chieffancypants/angular-hotkeys#^1.7.0",
+    "ngFitText": "^4.2.1"
   }
 }

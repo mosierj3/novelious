@@ -1,0 +1,34 @@
+.novelius-trim {
+  color: cyan; }
+
+/* Dropdown-menu fix */
+.open > .dropdown-menu {
+  display: block; }
+
+.open > a {
+  outline: 0; }
+
+/* Global css */
+.content {
+  margin-top: 56px; }
+
+.undecorated-link:hover {
+  text-decoration: none; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E; }
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89; }
+
+/* Drag and drop list required CSS */
+ul[dnd-list], ul[dnd-list] > li {
+  position: relative; }
+
+.text-center {
+  text-align: center; }
+
+/*# sourceMappingURL=test.css.map */

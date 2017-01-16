@@ -3,10 +3,10 @@
 // Writer controller
 angular.module('writer').controller('WriterController', [
   '$rootScope', '$scope', '$state', '$stateParams', '$location', '$timeout', '$document',
-  'Authentication', 'Menus', 'Story', 'Chapter',
+  'Authentication', 'Menus', 'Story', 'Chapter', 'hotkeys',
   function(
     $rootScope, $scope, $state, $stateParams, $location, $timeout, $document,
-    Authentication, Menus, Story, Chapter
+    Authentication, Menus, Story, Chapter, hotkeys
   ) {
     $scope.authentication = Authentication;
     $rootScope.story = null;
@@ -28,6 +28,34 @@ angular.module('writer').controller('WriterController', [
         }, 2000);
       }
     };
+
+    // Initialize Hotkeys
+    hotkeys.bindTo($scope)
+    .add({
+      combo: 'ctrl+s',
+      description: 'Save Story',
+      callback: function(event, hotkey) {
+        event.preventDefault();
+        console.log("Save");
+        $scope.updateStory();
+      }
+    })
+    .add({
+      combo: 'ctrl+a',
+      description: 'Select Chapter',
+      callback: function(event, hotkey) {
+        event.preventDefault();
+      }
+    })
+    .add({
+      combo: 'tab',
+      description: 'Indent',
+      callback: function() {
+        event.preventDefault();
+        console.log("Indent");
+      }
+    });
+
 
     $scope.toggleSidebarActive = function() {
       $scope.sidebarActive = !$scope.sidebarActive;

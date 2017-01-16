@@ -1,12 +1,10 @@
 
-<!-- Writing pad
-<div id="editor" class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" ng-init="findOneStory()" du-scroll-container>
--->
+<!-- Writing pad -->
 <div class="row">
   <div class="col-xl-8 col-xs-12" id="editor" ng-init="findOneStory()" du-scroll-container>
     <div class="writer-pad-padding"></div>
     <div class="pageitem writer-pad" ng-repeat="chapter in chapters | orderBy:'number'" id="{{chapter._id}}" du-scrollspy>
-      <div class="options float-xs-right">
+      <div class="options float-right">
         <a href="" data-placement="bottom" title="Delete Chapter" onmouseenter="$(this).tooltip('show')" ng-click="removeChapter('{{chapter._id}}')">
           <i class="fa fa-times-circle-o fa-lg" aria-hidden="true"></i>
         </a>
@@ -17,19 +15,19 @@
           <i class="fa fa-arrow-circle-o-down fa-lg" aria-hidden="true"></i>
         </a>
       </div>
-      <h2 contenteditable class="chapter-title text-center" ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
-      <p contenteditable class="chapter-text" ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
+      <h2 contenteditable data-fittext data-fittext-max="inherit" class="chapter-title text-center" ng-model="chapter.title" data-placeholder="{{defaultTitle}}"></h2>
+      <p contenteditable class="chapter-text novelius-writing" ng-model="chapter.text" data-placeholder="{{chapter.defaultText}}"></p>
     </div>
   </div>
   <!-- Comments Sidebar -->
-  <div class="col-lg-2 h-100 hidden-md-down bg-faded">
+  <div class="col-lg-2 h-100 hidden-lg-down">
     <!-- comments and stuff here -->
   </div>
 
   <!-- Story Sidebar -->
-  <div class="col-lg-2 h-100 hidden-print writer-sidebar" ng-class="{active: sidebarActive}" id="sidebar">
-    <span class="chapter-sidebar-header"><h4>Index</h4></span>
-    <ul class="nav nav-stacked" role="tablist" dnd-list="chapters">
+  <div class="col-lg-2 h-100 hidden-print writer-sidebar novelius-blue" ng-class="{active: sidebarActive}" id="sidebar">
+    <h5>Index</h5></span>
+    <ul class="nav flex-column" role="tablist" dnd-list="chapters">
       <li id="{{chapter._id}}"
           class="chapter-navItem"
           ng-repeat="chapter in chapters | orderBy:'number'"

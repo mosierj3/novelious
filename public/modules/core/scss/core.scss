@@ -1,0 +1,80 @@
+@import "variables";
+
+.novelius-dark {
+  color: $novelius-dark !important;
+}
+.novelius-dark-bg {
+  background-color: $novelius-dark !important;
+}
+.novelius-light {
+  color: $novelius-light !important;
+}
+.novelius-light-bg {
+  background-color: $novelius-light !important;
+}
+.novelius-blue {
+  color: $novelius-blue !important;
+}
+.novelius-blue-bg {
+  background-color: $novelius-blue !important;
+}
+.novelius-green {
+  color: $novelius-green !important;
+}
+.novelius-green-bg {
+  background-color: $novelius-green !important;
+}
+.novelius-lightgreen {
+  color: $novelius-lightgreen !important;
+}
+.novelius-lightgreen-bg {
+  background-color: $novelius-lightgreen !important;
+}
+.novelius-trim {
+  border-color: $novelius-blue !important;
+}
+
+/* Standard ui elements */
+.nav a:hover {
+  background-color: $novelius-light !important;
+}
+.novelius-writing {
+  font-family: $novelius-writing-font;
+  font-size: $novelius-writing-size;
+}
+
+/* Dropdown-menu fix */
+.open > .dropdown-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+
+/* Global css */
+.navbar {
+  min-height: 56px !important;
+}
+.content {
+	margin-top: 56px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+.ng-invalid.ng-dirty {
+	border-color: #FA787E;
+}
+.ng-valid.ng-dirty {
+	border-color: #78FA89;
+}
+/* Drag and drop list required CSS */
+ul[dnd-list], ul[dnd-list] > li {
+    position: relative;
+}
+
+.text-center {
+	text-align: center;
+}

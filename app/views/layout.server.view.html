@@ -44,11 +44,13 @@
 </head>
 
 <body class="ng-cloak">
-	<header data-ng-include="'/modules/core/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-toggleable-sm navbar-inverse fixed-top bg-inverse" ng-include="'/modules/core/views/header.client.view.html'" ng-controller="HeaderController"></nav>
+
+	<!-- Content -->
 	<section class="content">
-		<section class="container-fluid">
-			{% block content %}{% endblock %}
-		</section>
+		{% block content %}{% endblock %}
 	</section>
 
 	<!--Embedding The User Object-->

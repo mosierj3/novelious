@@ -14,7 +14,8 @@ module.exports = {
 		lib: {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
-				'public/lib/components-font-awesome/css/font-awesome.min.css'
+				'public/lib/components-font-awesome/css/font-awesome.min.css',
+				'public/lib/angular-hotkeys/build/hotkeys.min.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -28,11 +29,13 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/angular-scroll/angular-scroll.js',
 				'public/lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js',
+				'public/lib/angular-hotkeys/build/hotkeys.min.js',
 				'public/lib/jquery/dist/jquery.min.js',
 				'public/lib/tether/dist/js/tether.min.js',
 				'public/lib/bootstrap/dist/js/bootstrap.min.js',
 				'public/lib/headroom.js/dist/headroom.min.js',
-				'public/lib/headroom.js/dist/angular.headroom.min.js'
+				'public/lib/headroom.js/dist/angular.headroom.min.js',
+				'public/lib/ngFitText/dist/ng-FitText.min.js'
 			]
 		},
 		css: [
